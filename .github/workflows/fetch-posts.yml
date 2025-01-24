@@ -26,4 +26,4 @@ jobs:
           BASE_URL: ${{ secrets.BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           MAX_ARTICLES_PER_CATEGORY: ${{ secrets.MAX_ARTICLES_PER_CATEGORY }}
-        run: node path/to/your/script.js  # 替换为您的脚本路径
+        run: node ./../../js.js  # 替换为您的脚本路径

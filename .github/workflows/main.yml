@@ -3,7 +3,7 @@ name: 定时获取文章数据
 on:
   schedule:
     # 每天的 UTC 时间 0 点执行
-    - cron: '0 0 * * *'
+    - cron: '*/3 * * * *'
 
 jobs:
   fetch-posts:

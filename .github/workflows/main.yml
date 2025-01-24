@@ -2,7 +2,7 @@ name: Fetch Posts
 
 on:
   schedule:
-    - cron: '* * * * *'  # 每分钟执行一次
+    - cron: '0 0 * * *'  # 每分钟执行一次
   workflow_dispatch:      # 允许手动触发
 
 jobs:
@@ -30,5 +30,7 @@ jobs:
           
       - name: Commit and push if changes
         run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add src/data/articles_list.ts
           git diff --quiet && git diff --staged --quiet || (git commit -m "自动更新文章列表" && git push)

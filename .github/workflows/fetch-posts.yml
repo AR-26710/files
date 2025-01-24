@@ -1,0 +1,29 @@
+name: 定时获取文章数据
+
+on:
+  schedule:
+    # 每分钟执行
+    - cron: '* * * * *'
+
+jobs:
+  fetch-posts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v2
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # 或者您所需的 Node.js 版本
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 运行脚本
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          MAX_ARTICLES_PER_CATEGORY: ${{ secrets.MAX_ARTICLES_PER_CATEGORY }}
+        run: node path/to/your/script.js  # 替换为您的脚本路径

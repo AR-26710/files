@@ -1,4 +1,4 @@
-name: 定时获取文章数据
+name: 3分钟
 
 on:
   schedule:
